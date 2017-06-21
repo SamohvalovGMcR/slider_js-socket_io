@@ -147,17 +147,17 @@ for(k=0;k<arr.length;k++){
  
 
 var id=setInterval(()=>{
-
-arr[i+1] ?  i++ :  i=0;
 leftf(i);
+arr[i+1] ?  i++ :  i=0;
+
 //  clearInterval();
   },4000);
   
 landall.onmouseenter=()=>clearInterval(id);
 landall.onmouseleave=()=>id=setInterval(()=>{
-
-arr[i+1] ?  i++ :  i=0;
 leftf(i);
+arr[i+1] ?  i++ :  i=0;
+
 
   },4000);
 
