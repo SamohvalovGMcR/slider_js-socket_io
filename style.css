@@ -1,0 +1,64 @@
+/* Styles go here */
+
+#buttons{
+   bottom:3%;
+   left:50%;
+   position: absolute; 
+}
+ 
+#buttons button{
+    
+  
+   opacity: 0.5;
+   z-index:3; 
+  position: absolute;
+ 
+   border-radius: 50%;
+   outline:none;
+ }
+ 
+ #landall  span{
+   display:block;
+   color:white;
+   opacity: 0.4;
+   cursor:pointer;
+    position: absolute;
+     z-index:3;
+     bottom:25%;
+     left:5%;
+   font-size: 35px;
+   
+   /* border: 1px dashed yellow;*/
+    
+ }
+ 
+ 
+    #train, #train1{
+      position: absolute;
+      left:0px;
+     /* border: 1px dashed yellow; */
+     z-index:1;
+    }
+    
+     #train1{
+      /*  border: 1px dashed green; */
+     }
+     
+  #landall{
+   overflow:hidden;
+  }  
+   
+
+ #train1.animate, #train.animate{
+ transition-property:left;
+ 
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  
+}
+
+#train1.noanimate, #train.noanimate{
+ transition-property:left;
+ transition-delay: 1s;
+ transition-duration: 0s;
+}
