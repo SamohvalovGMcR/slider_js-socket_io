@@ -51,9 +51,7 @@
  var im=document.createElement('img');
  im.id="train"
  im.src=arr[i+1][0];
-  im.style.left=-im.width +"px";
- 
- landall.appendChild(im);
+  
  
  
 
@@ -61,6 +59,11 @@
    train1.onload = function(){  
   landall.style.width=train1.width +"px";
    landall.style.height=train1.height +"px";
+   im.style.left=-train1.width +"px";
+ 
+ landall.appendChild(im);
+   
+   
   //show.innerHTML = train.width;
   
  };
