@@ -29,27 +29,36 @@
   //  "http:///images/Коля.png",
    /// "http://Петя.png",
     //"http://Федя.png",
-   "http://adovaya.jpg",
-   "http://Продукты.jpg",
-    "http://1440x900-004.jpg",
+   //"http://adovaya.jpg",
+   //"http://Продукты.jpg",
+    //"http://1440x900-004.jpg",
+	['http://192.168.1.102/st/monitorle.png',["/rle"]],
+	['http://192.168.1.102/st/monitorri.png',['http://torri.ru/']],
+	
+	['http://192.168.1.102/st/monitor1.png',["/tor1"]],
  ];
  
   /*socket.on('sliderimg', function (value) {*/
   /* if(value)arr=value;*/ 
  /*});*/
+ var im1=document.createElement('img');
+ im1.id="train1"
+ im1.src=arr[i][0];
+ im1.onclick=()=>location.href =arr[i][1];
+ landall.appendChild(im1);
+ 
 
  var im=document.createElement('img');
  im.id="train"
- im.src=arr[i];
+ im.src=arr[i+1][0];
   im.style.left=-im.width +"px";
+ 
  landall.appendChild(im);
  
- var im1=document.createElement('img');
- im1.id="train1"
- im1.src=arr[i];
- landall.appendChild(im1);
  
- train1.onload = function(){   
+
+ 
+   train1.onload = function(){  
   landall.style.width=train1.width +"px";
    landall.style.height=train1.height +"px";
   //show.innerHTML = train.width;
@@ -57,11 +66,11 @@
  };
   
   const leftf=(i1=i)=> {
-    
+    train.onclick=()=>location.href =arr[i1][1];
     if(train1.style.left=="0px"||train1.style.left==0){
   train.classList.add('animate');
 
- train.src=arr[i1];
+ train.src=arr[i1][0];
   train.style.zIndex=2;
   train.classList.remove('noanimate');
   train.style.left=0;
@@ -76,7 +85,7 @@
   train1.classList.remove('noanimate');
   train1.classList.add('animate');
   // arr[i1+1] ?  i=i1+1 : i=0 ;
-   train1.src=arr[i1];
+   train1.src=arr[i1][0];
   train1.style.left=0 +"px";
   train.style.zIndex=1;
   train.classList.add('noanimate');
@@ -87,12 +96,12 @@
 
 const rightf=(i1=i)=> {
    
-  
+  train.onclick=()=>location.href =arr[i1][1];
   train.classList.remove('noanimate');
   train1.classList.remove('noanimate');
  if(train1.style.left=="0px"||train1.style.left==0){
    
-   train.src=arr[i1];
+   train.src=arr[i1][0];
   train1.classList.add('animate');
 
 
@@ -103,7 +112,7 @@ const rightf=(i1=i)=> {
    train.style.left=0;
  }else{
    
-     train1.src=arr[i1];
+     train1.src=arr[i1][0];
   train.classList.add('animate');
  
   train.style.zIndex=2;
@@ -147,17 +156,17 @@ for(k=0;k<arr.length;k++){
  
 
 var id=setInterval(()=>{
-leftf(i);
-arr[i+1] ?  i++ :  i=0;
 
+arr[i+1] ?  i++ :  i=0;
+leftf(i);
 //  clearInterval();
   },4000);
   
 landall.onmouseenter=()=>clearInterval(id);
 landall.onmouseleave=()=>id=setInterval(()=>{
-leftf(i);
-arr[i+1] ?  i++ :  i=0;
 
+arr[i+1]?  i++ :  i=0;
+leftf(i);
 
   },4000);
 
