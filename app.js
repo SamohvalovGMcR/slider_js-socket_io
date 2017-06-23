@@ -70,7 +70,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-var value={} ;
+var value=[
+  
+['http://192.168.1.102/images/monitorle.png','/rle'],
+['http://192.168.1.102/images/monitorri.png','http://torr.ru/'],
+//	
+['http://192.168.1.102/images/monitor2.png','/toir1'],
+ ];
 
 
 
@@ -78,7 +84,7 @@ io.sockets.on('connection', function (client) {
 
 
 client.emit('new', {});
-
+client.emit('sliderimg', value);
     
   
 });//'connection', function 

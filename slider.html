@@ -20,20 +20,32 @@
 </div>
 
   <script >
-  //var socket = io.connect();//
-   var i=0;
+  var socket = io.connect();//
+   
+  var value1;
+  var arrn=[
+  ['http://192.168.1.102/images/monitorri.png','http://torr.ru/'],
   
-  var arr=[
+['http://192.168.1.102/images/monitorle.png','/rle'],	
+['http://192.168.1.102/images/monitor1.png','/toir1'],
+  ];
+  socket.on('sliderimg', function (value) {
   
-	['http://192.168.1.102/images/monitorle.png',["/rle"]],
-	['http://192.168.1.102/images/monitorri.png',['http://torr.ru/']],
-	
-	['http://192.168.1.102/images/monitor1.png',["/toir1"]],
- ];
- 
-  /*socket.on('sliderimg', function (value) {*/
-  /* if(value)arr=value;*/ 
- /*});*/
+   if(value){
+  
+  value1=value;
+  
+  //arrn=value;
+  
+   //slider(arrn);
+   };
+   
+ });
+
+ //alert(arr);
+ const slider=(arr)=>{
+ if(arr.length<2)return;
+ var i=0;
  var im1=document.createElement('img');
  im1.id="train1"
  im1.src=arr[i][0];
@@ -165,10 +177,19 @@ arr[i+1]?  i++ :  i=0;
 leftf(i);
 
   },4000);
+};//f
+var id2=setInterval(()=>{
+if(value1){
 
+slider(value1);
+clearInterval(id2);
+}else{
+slider(arrn);
+clearInterval(id2)
+}
+ },500); 
   </script>
 </body>
 
 </html>
 
- 
